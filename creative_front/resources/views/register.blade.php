@@ -1,15 +1,21 @@
 @extends('layouts.head')
-@extends('layouts.general')
 
 
-@section('main')
-@endsection
 
 
-@section('style_main')
+
 
 
     <style>
+
+        .elevate
+        {
+            background: #e0e0e0;
+            box-shadow:  10px 10px 20px #bebebe,
+            -10px -10px 20px #ffffff;
+            border-radius: 20px;
+        }
+
         .cards
         {
             height: 500px !important;
@@ -18,7 +24,7 @@
         }
     </style>
 
-
+    <br><br>
 
     <div class="elevate cards" style="height: auto !important; padding: 40px; width: 40% !important; margin: auto !important;">
 
@@ -61,11 +67,12 @@
 
             <br>
 
+
             <button class="btn btn-success" type="submit">Submit</button>
 
             <br>
             @if(Session::has('message_register'))
-                {!! Session::get('message_register') !!}
+                {!! Session::get('message_register') !!} Go to <a href="./">login</a>
             @endif
 
         </form>
@@ -74,4 +81,3 @@
 
 
 
-@endsection

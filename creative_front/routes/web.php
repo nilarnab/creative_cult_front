@@ -27,10 +27,10 @@ Route::get('/new_event', function (){
     return view('new_event');
 });
 
-Route::get('/admin_pan', [Controller::class, 'handle_admin']);
-Route::get('/stage', [Controller::class, 'show_stages_acceptor']);
-Route::get('/stage_requester', [Controller::class, 'show_stages_requester']);
-Route::get('/show_event_details', [Controller::class, 'show_event_details']);
+Route::get('/admin_pan', [Controller::class, 'handle_admin'])->middleware('session_alive');
+Route::get('/stage', [Controller::class, 'show_stages_acceptor'])->middleware('session_alive');
+Route::get('/stage_requester', [Controller::class, 'show_stages_requester'])->middleware('session_alive');
+Route::get('/show_event_details', [Controller::class, 'show_event_details'])->middleware('session_alive');
 Route::get('/show_entry', [Controller::class, 'show_entry_details'])->middleware('session_alive');
 Route::post('/handle_new_entry', [Controller::class, 'handle_new_entry']);
 Route::get('/insert_new_entry', [Controller::class, 'insert_new_entry'])->middleware('session_alive');
