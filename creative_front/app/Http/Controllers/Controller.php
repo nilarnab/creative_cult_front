@@ -25,36 +25,21 @@ class Controller extends BaseController
 
     function __construct()
     {
-        $this->URL_BASE = "http://127.0.0.1:8080";
+        $this->URL_BASE = "http://127.0.0.1:8000";
     }
 
 
     function auth_login(Request $request)
     {
-//        return $request;
-//        return json_decode($request, true)['email'];
-
-
-
-
         $resp = $this->api_call('/login',
         [
             'email' => $request['email'],
             'password' => $request['password']
         ]);
 
-//        return $resp;
-
-
-
 
         if ($resp['id'])
         {
-            // success
-
-//            return $resp;
-
-//            echo "moving ahead";
 
             session(['user' => $resp['user']]);
             session(['session_info' => $resp['session_info']]);
